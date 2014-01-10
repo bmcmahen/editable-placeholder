@@ -17,12 +17,13 @@ module.exports = Placeholder;
  *
  * @param {Element} el
  * @param {String} str
+ * @param {Editor} editor
  */
 
-function Placeholder(el, str){
+function Placeholder(el, str, editor){
   if (!(this instanceof Placeholder)) return new Placeholder(el, str);
   this.classes = classes(el);
-  this.events = events(el, this);
+  this.events = events(editor || el, this);
   this.el = el;
   this.str = str;
   this.bind();
